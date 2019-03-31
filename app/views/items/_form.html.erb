@@ -49,7 +49,6 @@
     <%= fields_for "station_" + (i+1).to_s do |pf| %>
 
     <h3>最寄り駅<%= (i+1).to_s %></h3>
-
         <%= pf.hidden_field :item_sub_id ,value: (i+1).to_s %>
 
         <div class="field">
