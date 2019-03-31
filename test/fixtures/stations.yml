@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  item_sub_id: 1
+  route: MyString
+  name: MyString
+  walk_tima: 1
+
+two:
+  item: two
+  item_sub_id: 1
+  route: MyString
+  name: MyString
+  walk_tima: 1

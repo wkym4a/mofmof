@@ -1,0 +1,66 @@
+<h1>閲覧</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>物件名:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>賃料:</strong>
+  <% if not(@item.rent_price == nil) %>
+    <%= @item.rent_price.to_s(:delimited) %><a>円</a>
+  <% end %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @item.address %>
+</p>
+
+<p>
+  <strong>築年数:</strong>
+  <% if not(@item.age == nil) %>
+    <%= @item.age.to_s(:delimited) %><a>年</a>
+  <% end %>
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @item.matter %>
+</p>
+
+<hr>
+
+<% 2.times do |i| %>
+
+  <% if i + 1 > @item.stations.count  %>
+    <% station = Station.new  %>
+  <% else %>
+    <% station = @item.stations[i]  %>
+  <% end %>
+
+  <h3>最寄り駅<%= (i+1).to_s %></h3>
+
+  <p>
+    <strong>路線名:</strong>
+    <%= station.route %>
+  </p>
+
+  <p>
+    <strong>駅名:</strong>
+    <%= station.name %>
+  </p>
+
+  <p>
+    <strong>徒歩分数:</strong>
+    <% if not(station.walk_time == nil) %>
+      <%= station.walk_time.to_s(:delimited) %><a>分</a>
+    <% end %>
+  </p>
+
+<% end %>
+
+<%= link_to '編集', edit_item_path(@item) %> |
+<%= link_to '戻る', items_path %>
